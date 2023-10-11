@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { BsStarFill } from "react-icons/bs";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Loading, Movies } from "../components";
 import { IMAGE_URL_ORIGINAL, getMovieDetail, getMovieRecommendations, getMovieVideos } from "../utils";
 
@@ -76,7 +76,7 @@ export default function MovieDetailPage() {
                                 <h3 className="text-lg font-semibold">Recommendation</h3>
                                 <Movies fetchData={fetchRecommendation} isHasRecommendation={isHasRecommendationHandler} />
                             </span>
-                            <a href="/" className="bg-slate-800 rounded-sm font-medium py-1 px-3">Back to Home</a>
+                            <Link to="/" className="bg-slate-800 rounded-sm font-medium py-1 px-3">Back to Home</Link>
                         </div>
                     </span>
                     <span className="order-1 grid lg:order-2 h-80 md:h-auto items-stretch md:items-center">
