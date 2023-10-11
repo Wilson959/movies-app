@@ -1,12 +1,13 @@
 import PropTypes from 'prop-types';
 import { IMAGE_URL_W300 } from '../../utils';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 export default function MovieCard({ movie }) {
     const [imageLoaded, setImageLoaded] = useState(false);
 
     return (
-        <a href={`/detail/${movie.id}`} className="card">
+        <Link to={`/detail/${movie.id}`} className="card">
             <div className={`rounded-lg w-max ${imageLoaded ? '' : 'bg-gray-600 animate-pulse'}`}>
                 <img
                     src={IMAGE_URL_W300 + movie.poster_path}
@@ -18,7 +19,7 @@ export default function MovieCard({ movie }) {
                     }}
                 />
             </div>
-        </a>
+        </Link>
     )
 }
 
