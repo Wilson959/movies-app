@@ -19,7 +19,7 @@ Movie Apps is a web application that allows users to search for information abou
    npm run dev
    ```
 
-   The application can be accessed through the browser at [http://localhost:3000](http://localhost:3000).
+   The application can be accessed through your localhost.
 
 ## Used Libraries
 
