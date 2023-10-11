@@ -11,7 +11,7 @@ import { Waypoint } from "react-waypoint";
 
 export default function SearchPage() {
     const [useQuery] = useSearchParams()
-    const [debouncedQuery] = useDebounce(useQuery, 2000)
+    const [debouncedQuery] = useDebounce(useQuery, 500)
     const [movies, setMovies] = useState(null);
     const [pages, setPage] = useState(
         {
