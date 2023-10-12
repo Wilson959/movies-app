@@ -1,5 +1,9 @@
 # Movie Apps
 
+<img src="screenshot/index.png"
+        alt="Logo"        
+        width="1000" />
+
 Movie Apps is a web application that allows users to search for information about movies and explore the latest movie listings. The application uses the TMDB (The Movie Database) API to fetch movie data and is built with React + Vite and Tailwind CSS, along with several third-party libraries to enhance the user experience.
 
 ## Installation
