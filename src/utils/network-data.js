@@ -15,28 +15,28 @@ export async function getNowPlaying(page) {
   const response = await fetchWithToken(`${BASE_URL}/movie/now_playing?page=${page}`);
   const responseJson = await response.json();
 
-  return { error: false, data: responseJson.results };
+  return { error: false, data: responseJson.results, total_pages: responseJson.total_pages };
 }
 
 export async function getPopular(page) {
   const response = await fetchWithToken(`${BASE_URL}/movie/popular?page=${page}`);
   const responseJson = await response.json();
 
-  return { error: false, data: responseJson.results };
+  return { error: false, data: responseJson.results, total_pages: responseJson.total_pages };
 }
 
 export async function getTopTated(page) {
   const response = await fetchWithToken(`${BASE_URL}/movie/top_rated?page=${page}`);
   const responseJson = await response.json();
 
-  return { error: false, data: responseJson.results };
+  return { error: false, data: responseJson.results, total_pages: responseJson.total_pages };
 }
 
 export async function getUpcoming(page) {
   const response = await fetchWithToken(`${BASE_URL}/movie/upcoming?page=${page}`);
   const responseJson = await response.json();
 
-  return { error: false, data: responseJson.results };
+  return { error: false, data: responseJson.results, total_pages: responseJson.total_pages };
 }
 
 export async function getMovieDetail(id) {

@@ -27,7 +27,6 @@ export default function Movies({ title, fetchData, isHasRecommendation }) {
 
             // set movies state data
             setMovies(prev => [...prev, ...data])
-
             // returning a boolean value into parent
             if (isHasRecommendation != null)
                 isHasRecommendation(data.length > 0)
