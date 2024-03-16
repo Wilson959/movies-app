@@ -1,8 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import MovieCard from './MovieCard';
 import { Waypoint } from 'react-waypoint';
 import PropTypes from 'prop-types';
+
+import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 
 export default function Movies({ title, fetchData, isHasRecommendation }) {
     const [movies, setMovies] = useState([]);
@@ -12,6 +14,8 @@ export default function Movies({ title, fetchData, isHasRecommendation }) {
             page: 1,
         }
     );
+
+    const cardList = useRef(null);
 
     useEffect(() => {
         // fetch by pages, if null value assigned to 1
@@ -33,6 +37,18 @@ export default function Movies({ title, fetchData, isHasRecommendation }) {
         })
     }, [pages.page])
 
+    const scrollLeft = () => {
+        if (cardList.current) {
+            cardList.current.scrollLeft -= 500;
+        }
+    };
+
+    const scrollRight = () => {
+        if (cardList.current) {
+            cardList.current.scrollLeft += 500;
+        }
+    };
+
     // return nothing when theres no movies
     if (movies.length == 0)
         return null;
@@ -40,7 +56,8 @@ export default function Movies({ title, fetchData, isHasRecommendation }) {
     return (
         <>
             <h1 className='font-bold text-xs md:text-3xl'>{title}</h1>
-            <div className="card__card-list scrollbar__hidden">
+            <div className="card__card-list scrollbar__hidden" ref={cardList}>
+                <MdChevronLeft className="absolute xl:block hidden left-5 z-50 bg-gray-900 backdrop-blur-sm bg-opacity-50 rounded-full cursor-pointer hover:text-slate-400" size={50} onClick={scrollLeft}/>
                 {
                     movies.map(movie => {
                         return (
@@ -58,6 +75,7 @@ export default function Movies({ title, fetchData, isHasRecommendation }) {
                             }
                         })
                 }} />
+                <MdChevronRight className="absolute xl:block hidden right-5 z-50 bg-gray-900 backdrop-blur-sm bg-opacity-50 rounded-full cursor-pointer hover:text-slate-400" size={50} onClick={scrollRight}/>
             </div>
         </>
     )
