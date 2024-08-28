@@ -39,7 +39,7 @@ export default function MovieDetailPage() {
 
     const { title, overview, genres, release_date, status, vote_average } = movie;
     const video = videos.find(item => item.type.toLowerCase() == 'teaser')
-    const embedUrl = `https://api2.fmoviez.online/embed/movie/${id}'}`;
+    const embedUrl = `https://www.youtube.com/embed/${video?.key ??'}`;
 
     return (
         <div className="app bg-cover">
