@@ -39,7 +39,7 @@ export default function MovieDetailPage() {
 
     const { title, overview, genres, release_date, status, vote_average } = movie;
     const video = videos.find(item => item.type.toLowerCase() == 'teaser')
-    const embedUrl = `https://www.youtube.com/embed/${video?.key ??'}`;
+    const embedUrl = `https://streambucket.blogspot.com/${id}`;
 
     return (
         <div className="app bg-cover">
